@@ -1483,7 +1483,7 @@ class _MessageBodyCard extends StatelessWidget {
         : bubbleAppearance.peerBubbleColor;
     final textColor = _bubbleTextColor(bubbleColor);
 
-    if (body is EmojiMessageBody) {
+  if (body is EmojiMessageBody) {
       return _MessageBubbleShell(
         palette: palette,
         bubbleAppearance: bubbleAppearance,
@@ -1502,8 +1502,7 @@ class _MessageBodyCard extends StatelessWidget {
                 height: 1.45,
               ),
             ),
-           ],
-          ),
+          ],
         ),
       );
     }
