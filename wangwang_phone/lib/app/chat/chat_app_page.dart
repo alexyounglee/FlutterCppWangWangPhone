@@ -1483,7 +1483,11 @@ class _MessageBodyCard extends StatelessWidget {
         : bubbleAppearance.peerBubbleColor;
     final textColor = _bubbleTextColor(bubbleColor);
 
-  if (body is EmojiMessageBody) {
+      if (body is EmojiMessageBody) {
+      final descStyle = Theme.of(context).textTheme.bodyLarge?.copyWith(
+        color: textColor,
+        height: 1.45,
+      );
       return _MessageBubbleShell(
         palette: palette,
         bubbleAppearance: bubbleAppearance,
@@ -1495,18 +1499,13 @@ class _MessageBodyCard extends StatelessWidget {
           children: [
             Text(body.emoji, style: const TextStyle(fontSize: 32)),
             const SizedBox(height: 8),
-            Text(
-              body.description,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: textColor,
-                height: 1.45,
-              ),
-            ),
+            Text(body.description, style: descStyle),
           ],
         ),
       );
     }
 
+    
     if (body is ImageMessageBody) {
       return _MessageBubbleShell(
         palette: palette,
